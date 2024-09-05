@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnn0jerhkfw2f"]
+
+[ext_resource type="PackedScene" uid="uid://c7vlx700fgtqs" path="res://Assets/Scenes/Characters/infinity.tscn" id="1_ayth2"]
+[ext_resource type="Environment" uid="uid://bc4nmkhxncgkx" path="res://Assets/Environments/planet-01.tres" id="3_tep02"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkdyy"]
+albedo_color = Color(0.0229927, 0.202795, 0.320488, 1)
+roughness = 0.76
+rim_enabled = true
+rim_tint = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_to1wx"]
+lightmap_size_hint = Vector2i(102, 102)
+material = SubResource("StandardMaterial3D_mkdyy")
+size = Vector2(20, 20)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_drhok"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="infinity" parent="." instance=ExtResource("1_ayth2")]
+
+[node name="Terrain" type="Node3D" parent="."]
+
+[node name="TestGroundPlane" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_to1wx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TestGroundPlane"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestGroundPlane/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_drhok")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.5, -0.612372, 0.612372, 0, 0.707107, 0.707107, -0.866025, 0.353553, -0.353553, 0, 5, 0)
+light_energy = 1.25
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_tep02")
+
+[editable path="infinity"]
