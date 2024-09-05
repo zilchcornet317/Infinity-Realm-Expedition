@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Assets/Scripts/States/Generic/MoveState.gd" id="4_fm0wv"]
 [ext_resource type="Script" path="res://Assets/Scripts/StateMachine/StateMachine.gd" id="4_yke0m"]
 [ext_resource type="Script" path="res://Assets/Scripts/States/Generic/IdleState.gd" id="5_yhrb3"]
-[ext_resource type="Material" uid="uid://bxxiv0ljw85ag" path="res://Assets/Shaders/screen.tres" id="9_l26uu"]
+[ext_resource type="Material" uid="uid://bxxiv0ljw85ag" path="res://Assets/Materials/screen.tres" id="9_l26uu"]
 [ext_resource type="Material" uid="uid://btqrywbouw0tk" path="res://Assets/Materials/Infinity/jacket.tres" id="10_1s82k"]
 [ext_resource type="Material" uid="uid://b1lixdut4rmj2" path="res://Assets/Materials/Infinity/helmet.tres" id="10_cj857"]
 [ext_resource type="Material" uid="uid://cjtvf8uctvapd" path="res://Assets/Materials/Infinity/helmet-inner.tres" id="11_egnnu"]
