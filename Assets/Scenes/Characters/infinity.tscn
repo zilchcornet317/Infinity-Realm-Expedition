@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c7vlx700fgtqs"]
+[gd_scene load_steps=26 format=3 uid="uid://c7vlx700fgtqs"]
 
 [ext_resource type="PackedScene" uid="uid://bfdvxynauwmtj" path="res://Assets/Models/infinity.glb" id="1_rm5qk"]
 [ext_resource type="Script" path="res://Assets/Scripts/Entity.gd" id="2_pd53c"]
@@ -11,7 +11,18 @@
 [ext_resource type="Script" path="res://Assets/Scripts/States/Generic/IdleState.gd" id="5_yhrb3"]
 [ext_resource type="Script" path="res://Assets/Scripts/States/Generic/AttackState.gd" id="8_73dwl"]
 [ext_resource type="Material" uid="uid://bxxiv0ljw85ag" path="res://Assets/Materials/screen.tres" id="9_l26uu"]
+[ext_resource type="Material" uid="uid://btqrywbouw0tk" path="res://Assets/Materials/Infinity/jacket.tres" id="10_1s82k"]
+[ext_resource type="Material" uid="uid://b1lixdut4rmj2" path="res://Assets/Materials/Infinity/helmet.tres" id="10_cj857"]
 [ext_resource type="Script" path="res://Assets/Scripts/Attack.gd" id="10_tw3ty"]
+[ext_resource type="Material" uid="uid://cjtvf8uctvapd" path="res://Assets/Materials/Infinity/helmet-inner.tres" id="11_egnnu"]
+[ext_resource type="Material" uid="uid://bsrujfkw5md00" path="res://Assets/Materials/Infinity/skin.tres" id="12_sfjbh"]
+[ext_resource type="Material" uid="uid://bajs3rvxxuqh6" path="res://Assets/Materials/Infinity/shoulder-pad.tres" id="13_ehb3q"]
+[ext_resource type="Material" uid="uid://dl40ym1buxucx" path="res://Assets/Materials/Infinity/pants.tres" id="14_3o2lr"]
+[ext_resource type="Material" uid="uid://7yw07gmjjvev" path="res://Assets/Materials/Infinity/cape.tres" id="14_qrtd5"]
+[ext_resource type="Material" uid="uid://da74du0n3h152" path="res://Assets/Materials/Infinity/hair.tres" id="15_71fgo"]
+[ext_resource type="Material" uid="uid://co0ctj87h8mt7" path="res://Assets/Materials/Infinity/boots.tres" id="15_d8i71"]
+[ext_resource type="Material" uid="uid://bn60d6lka13wa" path="res://Assets/Materials/Infinity/shirt.tres" id="16_jlivn"]
+[ext_resource type="Material" uid="uid://ddecb3fjj6ate" path="res://Assets/Materials/Infinity/hair-highlight.tres" id="23_janfc"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_yiivj"]
 material = ExtResource("9_l26uu")
@@ -198,11 +209,46 @@ bones/39/rotation = Quaternion(0.184026, -0.0284156, -0.00906351, 0.982469)
 bones/39/scale = Vector3(1, 1, 1)
 
 [node name="Helmet" parent="Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.754711, 0.013218, -0.26502, -0.0921147, 0.762369, -0.224296, 0.248848, 0.242114, 0.720732, -0.274164, -0.00841331, 0.0857829)
+transform = Transform3D(0.754711, 0.0132179, -0.265021, -0.0921153, 0.762368, -0.224297, 0.248849, 0.242115, 0.720732, -0.274164, -0.00841224, 0.0857823)
+
+[node name="Helmet" parent="Armature/Skeleton3D/Helmet" index="0"]
 visible = false
+surface_material_override/0 = ExtResource("10_cj857")
+surface_material_override/1 = ExtResource("11_egnnu")
+surface_material_override/2 = ExtResource("11_egnnu")
 
 [node name="Blade" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.309267, -0.383271, -0.0863561, 0.173475, 0.034608, 0.467663, -0.352506, -0.319226, 0.154382, -1.44227, 1.34989, -0.292731)
+transform = Transform3D(0.309267, -0.383271, -0.0863564, 0.173475, 0.0346082, 0.467663, -0.352506, -0.319226, 0.154382, -1.44227, 1.34989, -0.292731)
+
+[node name="Arm" parent="Armature/Skeleton3D" index="2"]
+surface_material_override/0 = ExtResource("12_sfjbh")
+surface_material_override/1 = ExtResource("10_1s82k")
+surface_material_override/2 = ExtResource("10_1s82k")
+
+[node name="Body" parent="Armature/Skeleton3D" index="3"]
+surface_material_override/0 = ExtResource("12_sfjbh")
+surface_material_override/1 = ExtResource("14_3o2lr")
+surface_material_override/2 = ExtResource("15_d8i71")
+surface_material_override/3 = ExtResource("16_jlivn")
+surface_material_override/4 = ExtResource("14_3o2lr")
+
+[node name="Cape" parent="Armature/Skeleton3D" index="4"]
+surface_material_override/0 = ExtResource("13_ehb3q")
+surface_material_override/1 = ExtResource("14_qrtd5")
+
+[node name="Hair" parent="Armature/Skeleton3D" index="5"]
+surface_material_override/0 = ExtResource("15_71fgo")
+surface_material_override/1 = ExtResource("23_janfc")
+
+[node name="Hand" parent="Armature/Skeleton3D" index="6"]
+surface_material_override/0 = ExtResource("12_sfjbh")
+
+[node name="Head" parent="Armature/Skeleton3D" index="7"]
+surface_material_override/0 = ExtResource("12_sfjbh")
+
+[node name="Jacket" parent="Armature/Skeleton3D" index="8"]
+surface_material_override/0 = ExtResource("10_1s82k")
+surface_material_override/1 = ExtResource("10_1s82k")
 
 [node name="AnimationPlayer" parent="." index="7"]
 root_motion_track = NodePath("Armature/Skeleton3D:root")

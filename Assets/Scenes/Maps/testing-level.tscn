@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnn0jerhkfw2f"]
+[gd_scene load_steps=7 format=3 uid="uid://cnn0jerhkfw2f"]
 
 [ext_resource type="PackedScene" uid="uid://c7vlx700fgtqs" path="res://Assets/Scenes/Characters/infinity.tscn" id="1_ayth2"]
+[ext_resource type="PackedScene" uid="uid://8a7mk571cxia" path="res://Assets/Scenes/Enemies/redslime.tscn" id="3_brrvy"]
 [ext_resource type="Environment" uid="uid://bc4nmkhxncgkx" path="res://Assets/Environments/planet-01.tres" id="3_tep02"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkdyy"]
@@ -50,9 +51,13 @@ shape = SubResource("WorldBoundaryShape3D_drhok")
 transform = Transform3D(-0.5, -0.612372, 0.612373, 0, 0.707107, 0.707106, -0.866025, 0.353553, -0.353554, 0, 5, 0)
 light_energy = 1.25
 shadow_enabled = true
+shadow_bias = 0.15
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
 environment = ExtResource("3_tep02")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0486, 0.510486, 0.489744)
+
+[node name="redslime" parent="." instance=ExtResource("3_brrvy")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -3, 0, -2)

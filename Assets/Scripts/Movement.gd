@@ -22,7 +22,6 @@ func _physics_process(delta):
 		
 	# Apply root motion
 	var root_motion_delta = entity.anim.get_root_motion_position()
-	print(root_motion_delta)
 	entity.velocity -= entity.model.get_quaternion() * root_motion_delta / delta;
 		
 	entity.move_and_slide()
