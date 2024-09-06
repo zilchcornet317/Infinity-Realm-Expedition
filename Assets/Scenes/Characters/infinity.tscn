@@ -48,7 +48,7 @@ script = ExtResource("5_yhrb3")
 
 [node name="Run" type="Node" parent="StateMachine" index="1"]
 script = ExtResource("4_fm0wv")
-speed = 7.5
+speed = 8.0
 
 [node name="Run-Stop" type="Node" parent="StateMachine" index="2"]
 script = ExtResource("5_yhrb3")
