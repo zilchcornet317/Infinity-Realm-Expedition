@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/redslime.glb-f4bbfc91d5b746f6fff9d65c22283b83
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="CharacterBody3D"
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

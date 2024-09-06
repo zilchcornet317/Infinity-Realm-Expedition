@@ -59,4 +59,5 @@ func switch_to(state: String):
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	current_state.anim_finished = true
+	if current_state:
+		current_state.anim_finished = true

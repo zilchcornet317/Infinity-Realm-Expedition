@@ -1,14 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://8a7mk571cxia"]
+[gd_scene load_steps=6 format=3 uid="uid://bnq6kyw7csjrm"]
 
 [ext_resource type="PackedScene" uid="uid://5xkk1fd51bor" path="res://Assets/Models/redslime.glb" id="1_f33ua"]
 [ext_resource type="Material" uid="uid://c4r22eyfug44l" path="res://Assets/Materials/Slime/slime-red.tres" id="2_1gwk5"]
 [ext_resource type="Material" uid="uid://ch6chfqbxbcr3" path="res://Assets/Materials/Slime/eye.tres" id="3_l1tm4"]
 [ext_resource type="Material" uid="uid://dryb2rb71lolt" path="res://Assets/Materials/Slime/pupil.tres" id="4_pue12"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hp8ij"]
+height = 0.6
+radius = 0.375
+
 [node name="redslime" instance=ExtResource("1_f33ua")]
 
 [node name="Armature" parent="." index="0"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.0911527, -0.0683645)
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(-0.043466, 1.19097e-07, -5.18156e-09, 0.999055)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(0.693869, -8.54263e-05, 8.39422e-05, 0.720101)
+bones/2/rotation = Quaternion(-0.247572, 0.00188227, 0.0193892, 0.968674)
 
 [node name="Cube" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("2_1gwk5")
@@ -17,3 +27,7 @@ surface_material_override/2 = ExtResource("4_pue12")
 
 [node name="Icosphere" parent="Armature/Skeleton3D" index="1"]
 surface_material_override/0 = ExtResource("2_1gwk5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("CylinderShape3D_hp8ij")

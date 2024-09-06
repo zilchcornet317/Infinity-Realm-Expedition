@@ -3,6 +3,6 @@
 [resource]
 diffuse_mode = 3
 specular_mode = 1
-albedo_color = Color(0.10748, 0.10748, 0.107479, 1)
+albedo_color = Color(0.135753, 0.16056, 0.163202, 1)
 metallic_specular = 1.0
 roughness = 0.0

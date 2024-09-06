@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cnn0jerhkfw2f"]
 
 [ext_resource type="PackedScene" uid="uid://c7vlx700fgtqs" path="res://Assets/Scenes/Characters/infinity.tscn" id="1_ayth2"]
-[ext_resource type="PackedScene" uid="uid://8a7mk571cxia" path="res://Assets/Scenes/Enemies/redslime.tscn" id="3_brrvy"]
+[ext_resource type="PackedScene" uid="uid://bnq6kyw7csjrm" path="res://Assets/Scenes/Enemies/redslime.tscn" id="3_brrvy"]
 [ext_resource type="Environment" uid="uid://bc4nmkhxncgkx" path="res://Assets/Environments/planet-01.tres" id="3_tep02"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkdyy"]
@@ -61,4 +61,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0486, 0.510486, 0.489744)
 use_collision = true
 
 [node name="redslime" parent="." instance=ExtResource("3_brrvy")]
-transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -3, 0, -2)
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -2, 0, -2)
