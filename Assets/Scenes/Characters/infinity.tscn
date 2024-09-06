@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c7vlx700fgtqs"]
+[gd_scene load_steps=26 format=3 uid="uid://c7vlx700fgtqs"]
 
 [ext_resource type="PackedScene" uid="uid://bfdvxynauwmtj" path="res://Assets/Models/infinity.glb" id="1_rm5qk"]
 [ext_resource type="Script" path="res://Assets/Scripts/Entity.gd" id="2_pd53c"]
@@ -23,11 +23,6 @@
 [ext_resource type="Material" uid="uid://co0ctj87h8mt7" path="res://Assets/Materials/Infinity/boots.tres" id="15_d8i71"]
 [ext_resource type="Material" uid="uid://bn60d6lka13wa" path="res://Assets/Materials/Infinity/shirt.tres" id="16_jlivn"]
 [ext_resource type="Material" uid="uid://ddecb3fjj6ate" path="res://Assets/Materials/Infinity/hair-highlight.tres" id="23_janfc"]
-[ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail.gdshader" id="24_03eus"]
-[ext_resource type="Shader" path="res://GPUTrail-main/shaders/trail_draw_pass.gdshader" id="25_bjrsp"]
-[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://GPUTrail-main/defaults/texture.tres" id="26_cny72"]
-[ext_resource type="Texture2D" uid="uid://ct31fhxvcragr" path="res://GPUTrail-main/defaults/curve.tres" id="27_sr4rd"]
-[ext_resource type="Script" path="res://GPUTrail-main/GPUTrail3D.gd" id="28_ijblf"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_yiivj"]
 material = ExtResource("9_l26uu")
@@ -37,21 +32,6 @@ size = Vector2(2, 2)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_aqtno"]
 height = 1.8
 radius = 0.375
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1780"]
-shader = ExtResource("24_03eus")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ormmo"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("25_bjrsp")
-shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
-shader_parameter/flags = 40
-shader_parameter/color_ramp = ExtResource("26_cny72")
-shader_parameter/curve = ExtResource("27_sr4rd")
-
-[sub_resource type="QuadMesh" id="QuadMesh_eelk2"]
-material = SubResource("ShaderMaterial_ormmo")
 
 [node name="infinity" instance=ExtResource("1_rm5qk")]
 script = ExtResource("2_pd53c")
@@ -278,17 +258,5 @@ autoplay = "Sword-Standby"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CylinderShape3D_aqtno")
-
-[node name="GPUTrail3D" type="GPUParticles3D" parent="." index="9"]
-amount = 100
-lifetime = 100.0
-explosiveness = 1.0
-fixed_fps = 0
-process_material = SubResource("ShaderMaterial_d1780")
-draw_pass_1 = SubResource("QuadMesh_eelk2")
-script = ExtResource("28_ijblf")
-color_ramp = ExtResource("26_cny72")
-curve = ExtResource("27_sr4rd")
-_defaults_have_been_set = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_player_animation_finished"]

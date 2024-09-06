@@ -14,5 +14,5 @@ sky = SubResource("Sky_b6bkl")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.5
-ambient_light_energy = 0.6
+ambient_light_energy = 0.75
 reflected_light_source = 1
