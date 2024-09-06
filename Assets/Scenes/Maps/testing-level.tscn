@@ -56,7 +56,3 @@ environment = ExtResource("3_tep02")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0486, 0.510486, 0.489744)
-
-[connection signal="animation_finished" from="SubViewportContainer/SubViewport/infinity/AnimationPlayer" to="SubViewportContainer/SubViewport/infinity/StateMachine/Sword-Attack1" method="_on_animation_player_animation_finished"]
-
-[editable path="SubViewportContainer/SubViewport/infinity"]

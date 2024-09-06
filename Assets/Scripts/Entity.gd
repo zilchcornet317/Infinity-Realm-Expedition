@@ -1,4 +1,4 @@
-extends Node # as of writing only CharacterBody3D uses but going to write work with any node for now
+extends CharacterBody3D # as of writing only CharacterBody3D uses but going to write work with any node for now
 class_name Entity
 
 # Currently equipped weapon if any.
