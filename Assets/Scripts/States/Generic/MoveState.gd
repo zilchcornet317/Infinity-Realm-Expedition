@@ -6,7 +6,7 @@ class_name MoveState
 
 func check_transition(delta: float) -> String:
 	if entity.input.direction == Vector2.ZERO:
-		return "Idle"
+		return "Run-Stop"
 	return ""
 	
 func physics_update(delta: float):

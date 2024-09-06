@@ -20,3 +20,7 @@ func _physics_process(delta):
 		character_body.velocity.z = move_toward(character_body.velocity.z, 0, speed)
 		
 	character_body.move_and_slide()
+
+# Check if a move input was just pressed. If so, attacks after delay can cancel into run, etc
+func is_move_key_just_pressed():
+	return Input.is_action_just_pressed("forward") or Input.is_action_just_pressed("back") or Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right")

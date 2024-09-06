@@ -1,4 +1,5 @@
 extends Node3D
+class_name Model
 
 #@onready var anim_tree = $"../AnimationTree"
 #@onready var anim_state = anim_tree.get("parameters/playback")
