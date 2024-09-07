@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b35k6hpmvvr54"]
-
-[ext_resource type="Shader" uid="uid://lmqucpodnyr" path="res://Assets/Shaders/slash-trail.tres" id="1_x1k7a"]
-
-[resource]
-render_priority = 0
-shader = ExtResource("1_x1k7a")
-shader_parameter/FillAmount = 0.5
-shader_parameter/ReverseFillAmount = 0.0
