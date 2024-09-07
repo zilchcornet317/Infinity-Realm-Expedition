@@ -10,6 +10,9 @@ class_name AttackState
 # Player can cancel the attack and start a new attack after this many seconds into the attack
 @export var cancel_delay: float = 0.1
 
+# Object(s) that should be enabled/disabled when entering/exiting this state. (slash effect)
+@export var show_during: Array[Node3D]
+
 func check_transition(delta: float) -> String:
 	# go to idle after anim is completely finished
 	if anim_finished:
@@ -29,5 +32,12 @@ func physics_update(delta: float):
 	pass
 
 func on_enter_state():
+	for node in show_during:
+		node.show()
+	
 	entity.movement.direction = Vector2.ZERO
 	entity.anim.play(attack_name)
+
+func on_exit_state():
+	for node in show_during:
+		node.hide()
