@@ -10,8 +10,23 @@ class_name AttackState
 # Player can cancel the attack and start a new attack after this many seconds into the attack
 @export var cancel_delay: float = 0.1
 
+# Amount of frames before the hitbox should attack
+# this will probably be turned into a more robust system later, i.e. multiple hitboxes per state
+@export var attack_delay: float = 0.1
+
 # Object(s) that should be enabled/disabled when entering/exiting this state. (slash effect)
-@export var show_during: Array[Node3D]
+@export var slash_effect: SlashEffect
+
+
+@onready var hitbox: Hitbox = $Hitbox
+
+# if htbox's attack has already happened during this state
+var hitbox_activated: bool = false 
+
+func _ready():
+	if hitbox:
+		hitbox.monitoring = false;
+		hitbox.monitorable = false;
 
 func check_transition(delta: float) -> String:
 	# go to idle after anim is completely finished
@@ -26,18 +41,29 @@ func check_transition(delta: float) -> String:
 	return ""
 	
 func is_in_delay():
-	return time_elapsed < cancel_delay
-	
+	return time_elapsed < cancel_delay	
+
 func physics_update(delta: float):
-	pass
+	time_elapsed += delta
+	if not hitbox_activated and time_elapsed > attack_delay:
+		print("attack frame!")
+		hitbox_activated = true;
+		if hitbox:
+			hitbox.monitoring = true;
+			hitbox.monitorable = true;
 
 func on_enter_state():
-	for node in show_during:
-		node.show()
+	hitbox_activated = false
+	
+	if slash_effect:
+		slash_effect.rotation = entity.model.rotation;
+		slash_effect.rotation_degrees.y += 180
+		slash_effect.play()
 	
 	entity.movement.direction = Vector2.ZERO
 	entity.anim.play(attack_name)
-
+	
 func on_exit_state():
-	for node in show_during:
-		node.hide()
+	if hitbox:
+		hitbox.monitoring = false;
+		hitbox.monitorable = false;
